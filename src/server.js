@@ -1,27 +1,29 @@
-// importar pacote express
-const express = require('express');
-// instalar express na variavel app
-const app = express();
-// importar o pacote dotenv
-const dotenv = require('dotenv').config();
+// Importar o arquivo de configuração
+const app = require('./app');
 
-const PORT = process.env.PORT || 3333;
+// Importar a porta do servidor
+const PORT = app.get('port');
+ 
 
 app.get('/api', (request, response) => {
-    response.send('retorno de informações do banco de dados');
-});
+    response.send('Retorno de Informações do banco de dados');
+    console.log('Listar informações')
+})
 
-app.post('/api/:id', (request, response) => {
-    response.send('metodo utilizado para salvar informações')
-});
+app.post('/api', (request, response) => {
+    response.send('Método utilizado para salvar informações');
+    console.log('Listar informações')
+})
 
-app.put('/api/:id', (request, response) => {
-    response.send('metodo utilizado para editar informações')
-});
+app.put('/api', (request, response) => {
+    response.send('Método utilizado para editar informações');
+    console.log('Listar informações')
+})
 
-app.delete('/api/:id', (request, response) => {
-    response.send('metodo utilizado para deletar informações')
-});
+app.delete('/api', (request, response) => {
+    response.send('Método utilizado para deletar informações');
+    console.log('Listar informações')
+})
 
-//testar servidor
+// Testar servidor
 app.listen(PORT, () => console.log(`Running at port ${PORT}`))
